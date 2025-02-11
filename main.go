@@ -29,7 +29,7 @@ func main() {
 	winname := ""
 
 	for i := 0; i < runden; i++ {
-		usermap = round(usermap)
+		usermap = round(usermap) // speichern
 		fmt.Println("Hier Die Ergebnisse von dieser  Runde.Wenn ihr die Nächste Runde Starten wollt, drückt bitte die Enter Taste")
 		fmt.Println(usermap)
 		for name, value := range usermap {
@@ -59,16 +59,20 @@ func usercount() int {
 func round(usermap map[string]int) map[string]int {
 
 	for name, _ := range usermap {
-		zahl := wuerfeln()
-		enter(name)
-		usermap[name] += zahl
-		if zahl == 6 {
-			fmt.Printf("Hey, %s Deine Zahl war %v\n", name, zahl)
-			fmt.Println("All deine Punkte wurden auf 0 gesetzt, da du di Zahl 6 gewürfelt hast.")
-			usermap[name] = 0
-		} else {
-			fmt.Printf("Hey %s Deine Zahl war %v\n", name, zahl)
 
+		awnser := 1
+
+		for awnser == 1 {
+			zahl := wuerfeln()
+			usermap[name] += zahl
+			if zahl == 6 {
+				fmt.Printf("Hey, %s Deine Zahl war %v\n", name, zahl)
+				fmt.Println("All deine Punkte wurden auf 0 gesetzt, da du die Zahl 6 gewürfelt hast.")
+				usermap[name] = 0
+			} else {
+				fmt.Printf("Hey %s Deine Zahl war %v\n", name, zahl)
+			}
+			awnser = enter(name)
 		}
 
 	}
@@ -94,8 +98,13 @@ func userinput() string {
 
 }
 
-func enter(name string) {
+func enter(name string) int {
 
-	fmt.Printf("%s bitte drücke die Enter-Taste um zu Würfeln.", name)
-	bufio.NewReader(os.Stdin).ReadBytes('\n')
+	awnser := 0
+
+	fmt.Printf("%s ,möchtest du weitermachen? ( Ja 1 | Nein 2 ).", name)
+	fmt.Scanln(&awnser)
+
+	return awnser
+
 }
