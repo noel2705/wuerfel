@@ -12,9 +12,12 @@ import (
 
 func main() {
 
-	count := usercount()
-
 	usermap := make(map[string]int)
+	runden := 0
+	fmt.Println("Wieviele Runden möchtet ihr spielen?")
+	fmt.Scanln(&runden)
+
+	count := usercount()
 
 	for i := 0; i < count; i++ {
 
@@ -22,32 +25,54 @@ func main() {
 		usermap[name] = 0
 
 	}
-	results := make(map[string]int)
+	maxvalue := 0
+	winname := ""
+
+	for i := 0; i < runden; i++ {
+		usermap = round(usermap)
+		fmt.Println("Hier Die Ergebnisse von dieser  Runde.Wenn ihr die Nächste Runde Starten wollt, drückt bitte die Enter Taste")
+		fmt.Println(usermap)
+		for name, value := range usermap {
+			if value > maxvalue {
+				winname = name
+				maxvalue = value
+				fmt.Println("Die Höchste Zahl war die", maxvalue, "von", winname)
+			}
+			bufio.NewReader(os.Stdin).ReadBytes('\n')
+		}
+
+	}
+	fmt.Println(winname, "ist der Gewinner mit", maxvalue, "Punkten dieses Spieles. Herzlichen Glükwunsch")
+}
+
+func usercount() int {
+
+	var count int
+
+	fmt.Print("Wieviele Spieler nehmen an dem Spiel teil?")
+	fmt.Scanln(&count)
+
+	return count
+
+}
+
+func round(usermap map[string]int) map[string]int {
+
 	for name, _ := range usermap {
 		zahl := wuerfeln()
-		userwuerfel(name)
-		wuerfeln()
-		results[name] = zahl
+		enter(name)
+		usermap[name] += zahl
 		if zahl == 6 {
 			fmt.Printf("Hey, %s Deine Zahl war %v\n", name, zahl)
 			fmt.Println("All deine Punkte wurden auf 0 gesetzt, da du di Zahl 6 gewürfelt hast.")
-			results[name] = 0
+			usermap[name] = 0
 		} else {
 			fmt.Printf("Hey %s Deine Zahl war %v\n", name, zahl)
 
 		}
 
 	}
-	maxvalue := 0
-	winname := ""
-	for name, value := range results {
-		if value > maxvalue {
-			winname = name
-			maxvalue = value
-
-		}
-	}
-	fmt.Println("Die Höchste Zahl war die", maxvalue, "von", winname)
+	return usermap
 }
 
 func wuerfeln() int {
@@ -69,19 +94,7 @@ func userinput() string {
 
 }
 
-func usercount() int {
-
-	var count int
-
-	fmt.Print("Wieviele Spieler nehmen an dem Spiel teil?")
-	fmt.Scanln(&count)
-	fmt.Print("Es spielen ", count, " Spieler mit,")
-
-	return count
-
-}
-
-func userwuerfel(name string) {
+func enter(name string) {
 
 	fmt.Printf("%s bitte drücke die Enter-Taste um zu Würfeln.", name)
 	bufio.NewReader(os.Stdin).ReadBytes('\n')
