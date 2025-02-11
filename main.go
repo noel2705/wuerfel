@@ -22,25 +22,39 @@ func main() {
 		usermap[name] = 0
 
 	}
-
+	results := make(map[string]int)
 	for name, _ := range usermap {
+		zahl := wuerfeln()
 		userwuerfel(name)
 		wuerfeln()
+		results[name] = zahl
+		if zahl == 6 {
+			fmt.Printf("Hey, %s Deine Zahl war %v\n", name, zahl)
+			fmt.Println("All deine Punkte wurden auf 0 gesetzt, da du di Zahl 6 gewürfelt hast.")
+			results[name] = 0
+		} else {
+			fmt.Printf("Hey %s Deine Zahl war %v\n", name, zahl)
+
+		}
 
 	}
+	maxvalue := 0
+	winname := ""
+	for name, value := range results {
+		if value > maxvalue {
+			winname = name
+			maxvalue = value
 
+		}
+	}
+	fmt.Println("Die Höchste Zahl war die", maxvalue, "von", winname)
 }
+
 func wuerfeln() int {
 
-	zahl := rand.Intn(6)
+	zahl := rand.Intn(7)
 
 	return zahl
-
-}
-
-func wuerfelausgabe(zahl int) {
-
-	fmt.Printf("Hey Deine Zahl war %v\n", zahl)
 
 }
 
@@ -69,6 +83,6 @@ func usercount() int {
 
 func userwuerfel(name string) {
 
-	fmt.Printf("%s du bist nun dran. Drücke die Enter Taste um zu Würfeln", name)
+	fmt.Printf("%s bitte drücke die Enter-Taste um zu Würfeln.", name)
 	bufio.NewReader(os.Stdin).ReadBytes('\n')
 }
