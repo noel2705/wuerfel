@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9926629-6fc2-4964-b05b-9c36223bf1d4" name="Changes" comment="SDBX-2693">
+    <list default="true" id="c9926629-6fc2-4964-b05b-9c36223bf1d4" name="Changes" comment="SDBX-2695 safe 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
@@ -30,7 +30,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -109,7 +109,8 @@
       <workItem from="1739183101770" duration="11968000" />
       <workItem from="1739196832957" duration="2450000" />
       <workItem from="1739199319482" duration="159000" />
-      <workItem from="1739257600011" duration="23942000" />
+      <workItem from="1739257600011" duration="23967000" />
+      <workItem from="1739343659510" duration="14091000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -135,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739278447134</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="SDBX-2695 safe 1">
+      <option name="closed" value="true" />
+      <created>1739284321041</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739284321041</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,10 +165,19 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="SDBX-2692" />
     <MESSAGE value="SDBX-2693" />
-    <option name="LAST_COMMIT_MESSAGE" value="SDBX-2693" />
+    <MESSAGE value="SDBX-2695 safe 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="SDBX-2695 safe 1" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="*(*&quot;map[string]int&quot;)(824633875744)" />
+        <watch expression="*(*&quot;map[string]int&quot;)(824633875768)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
