@@ -31,8 +31,9 @@ func main() {
 		fmt.Println("Du Spielst nun mit einem Computer.")
 		zwischenstand["Computer"] = 0
 
-	} else {
-
+	} else if Bot == "ja" {
+		fmt.Println("Du Spielst nun mit einem Computer")
+		zwischenstand["Computer"] = 0
 	}
 
 	for i := 0; i < count; i++ {
@@ -59,18 +60,18 @@ func main() {
 		// zwischenstand wieder mit 0 initialisieren
 
 		fmt.Println("Hier Die Ergebnisse von dieser  Runde.Wenn ihr die Nächste Runde Starten wollt, drückt bitte die Enter Taste")
-		fmt.Println(usermap)
+
 		for name, value := range zwischenstand {
 			if value > maxvalue {
-				if value != 6 { //Wenn der Gewürfelte wert größter ist als der alte maximaler Wert, und dieser nicht 6 ist wird er überschrieben
-					winname = name
-					maxvalue = value
+				winname = name
+				maxvalue = value
+				// Ausgabe
 
-				}
-				fmt.Println("Die Höchste Zahl war die", maxvalue, "von", winname) // Ausgabe
 			}
-			bufio.NewReader(os.Stdin).ReadBytes('\n') // Gucken ob die Enter Taste gedrückt wird.
+
 		}
+		fmt.Println("Die Höchste Einzahlung in den Bunker  war mit ", maxvalue, "Punkten von", winname)
+		bufio.NewReader(os.Stdin).ReadBytes('\n') // Gucken ob die Enter Taste gedrückt wird.
 
 		for name, _ := range zwischenstand {
 
@@ -107,12 +108,13 @@ func round(zwischenstand map[string]int, bot string) map[string]int {
 
 				fmt.Printf("Hey, %s Deine Zahl war %v\n", name, zahl)
 				fmt.Println("All deine Punkte wurden auf 0 gesetzt, da du die Zahl 6 gewürfelt hast.")
+				awnser = 2
 				zwischenstand[name] = 0
 			} else {
 				fmt.Printf("Hey %s Deine Zahl war %v\n", name, zahl)
 
 			}
-			awnser = enter(name, bot)
+			awnser = enter(name, bot, zahl)
 		}
 
 		fmt.Println("Dein Bunker hat nun ", zwischenstand[name], "Punkte")
@@ -141,28 +143,46 @@ func userinput() string {
 
 }
 
-func enter(name string, bot string) int {
+func enter(name string, bot string, zahl int) int {
 
-	awnser := 0
-	botawnser := rand.Intn(3)
-	if name == "Computer" {
-		if bot == "Ja" {
+	awnser := 1
+	botawnser := rand.Intn(2)
 
-			fmt.Printf("%s ,möchtest du weitermachen und deine Punkte Riskieren oder Bunkern? ( Weitermmachen 1 | Bunkern 2 ).", name)
-			time.Sleep(1 * time.Second)
-			if botawnser == 1 {
+	if zahl == 6 {
+
+		awnser = 2
+		fmt.Println("\n-----------------")
+		return awnser
+	} else {
+		if name == "Computer" {
+			if bot != "Nein" {
+
+				fmt.Printf("%s ,möchtest du weitermachen und deine Punkte Riskieren oder Bunkern? ( Weitermmachen 1 | Bunkern 2 ).", name)
+				fmt.Println("Computer: ", botawnser)
 				time.Sleep(1 * time.Second)
-				_ = 1
-			} else {
-				time.Sleep(1 * time.Second)
-				_ = 2
+				if botawnser == 0 {
+					time.Sleep(1 * time.Second)
+					awnser = 1
+				} else if botawnser == 1 {
+					if zahl == 0 {
+						time.Sleep(1 * time.Second)
+						awnser = 1
+					} else {
+
+						time.Sleep(1 * time.Second)
+						awnser = 2
+
+					}
+				}
 			}
 
+		} else {
+			botawnser = 4
+			fmt.Printf("%s ,möchtest du weitermachen und deine Punkte Riskieren oder Bunkern? ( Weitermmachen 1 | Bunkern 2 ).", name)
+			fmt.Scanln(&awnser)
 		}
-	} else {
-		fmt.Printf("%s ,möchtest du weitermachen und deine Punkte Riskieren oder Bunkern? ( Weitermmachen 1 | Bunkern 2 ).", name)
-		fmt.Scanln(&awnser)
+		fmt.Println("\n-----------------")
+		return awnser
 	}
-	fmt.Println("\n-----------------")
-	return awnser
+
 }
