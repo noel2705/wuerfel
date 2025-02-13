@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9926629-6fc2-4964-b05b-9c36223bf1d4" name="Changes" comment="SDBX-2696 ready">
+      <change afterPath="$PROJECT_DIR$/wuerfeln/wuerfel_controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../Program Files/Go" />
   <component name="Git.Settings">
@@ -43,6 +52,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
     "Go Build.go build main.go.executor": "Run",
     "Go Build.go build wuerfel.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -60,6 +70,7 @@
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/prak-nspi/IdeaProjects/wuerfel/main.go",
     "settings.editor.selected.configurable": "configurable.group.language",
+    "ts.external.directory.path": "C:\\Users\\prak-nspi\\IdeaProjects\\wuerfel\\ui\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,7 +123,8 @@
       <workItem from="1739257600011" duration="23967000" />
       <workItem from="1739343659510" duration="20422000" />
       <workItem from="1739430147312" duration="9583000" />
-      <workItem from="1739441723808" duration="2481000" />
+      <workItem from="1739441723808" duration="3569000" />
+      <workItem from="1739447778102" duration="9387000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -162,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739373360913</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="SDBX-2696 ready">
+      <option name="closed" value="true" />
+      <created>1739446593870</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739446593870</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,26 +206,13 @@
     <MESSAGE value="SDBX-2695 safe 1" />
     <MESSAGE value="SDBX-2695 ready" />
     <MESSAGE value="SDBX-2696 not ready 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="SDBX-2696 not ready 1" />
+    <MESSAGE value="SDBX-2696 ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="SDBX-2696 ready" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/main.go</url>
-          <line>64</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/main.go</url>
-          <line>65</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="GoApplicationRunConfiguration">
         <watch expression="*(*&quot;map[string]int&quot;)(824633875744)" />

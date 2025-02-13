@@ -3,15 +3,31 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"math/rand"
 	"os"
 	"time"
+	wuerfeln2 "wuerfel/wuerfeln"
 )
 
 // TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
 
 func main() {
+	g := gin.Default()
+	router := g.Group("/api")
+	router.GET("/hello", func(context *gin.Context) {
+		context.JSON(200, gin.H{"msg": "world"})
+	})
+	wuerfeln2.Initalhttp(router)
+
+	err := g.Run(":3005")
+	if err != nil {
+		return
+	}
+}
+
+func temp() {
 	usermap := make(map[string]int)
 	zwischenstand := make(map[string]int) // Map anlegen
 
@@ -80,7 +96,6 @@ func main() {
 		}
 
 	}
-
 	fmt.Println(winname, "ist der Gewinner mit", maxvalue, "Punkten dieses Spieles. Herzlichen Glükwunsch")
 }
 
@@ -158,7 +173,6 @@ func enter(name string, bot string, zahl int) int {
 			if bot != "Nein" {
 
 				fmt.Printf("%s ,möchtest du weitermachen und deine Punkte Riskieren oder Bunkern? ( Weitermmachen 1 | Bunkern 2 ).", name)
-				fmt.Println("Computer: ", botawnser)
 				time.Sleep(1 * time.Second)
 				if botawnser == 0 {
 					time.Sleep(1 * time.Second)
