@@ -25,8 +25,8 @@ func Initalhttp(router *gin.RouterGroup) {
 func handlegetstart(context *gin.Context) {
 	context.Header("Access-Control-Allow-Origin", "*")
 	for name, _ := range zwischenstand {
-		zwischenstand[name] = 0
 		usermap[name] = 0 // Werte von einer Runde in die Gesammt Wertung einsetzen.
+		zwischenstand[name] = 0
 
 		context.JSON(200, gin.H{"Reset": fmt.Sprintf("%+v", usermap, zwischenstand)})
 
@@ -51,10 +51,15 @@ func handlegetbunker(context *gin.Context) {
 	for name, value := range zwischenstand {
 
 		usermap[name] += value // Werte von einer Runde in die Gesammt Wertung einsetzen.
-		context.JSON(200, gin.H{"Bunker-Ready": fmt.Sprintf("%+v", usermap)})
+		zwischenstand[name] = 0
+		context.JSON(200, gin.H{"Bunker-Ready": fmt.Sprintf("%+v", "%+v", usermap, zwischenstand)})
 
 	}
+	for name, _ := range zwischenstand {
+		zwischenstand[name] = 0
+		context.JSON(200, gin.H{"Zwischenstand": fmt.Sprintf("%+v", zwischenstand)})
 
+	}
 }
 
 type response struct {
@@ -69,11 +74,10 @@ func handleRollDice(context *gin.Context) {
 	zwischenstand[name] += zahl
 	if zahl == 6 {
 		zwischenstand[name] = 0
-		name = "Amboss"
+		context.Header("Access-Control-Allow-Origin", "*")
+		context.JSON(200, gin.H{
+			"zahl": zahl,
+			"name": name,
+		})
 	}
-	context.Header("Access-Control-Allow-Origin", "*")
-	context.JSON(200, gin.H{
-		"zahl": zahl,
-		"name": name,
-	})
 }

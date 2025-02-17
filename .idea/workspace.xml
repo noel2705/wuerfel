@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9926629-6fc2-4964-b05b-9c36223bf1d4" name="Changes" comment="react 1">
+    <list default="true" id="c9926629-6fc2-4964-b05b-9c36223bf1d4" name="Changes" comment="react 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wuerfeln/wuerfel_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/wuerfeln/wuerfel_controller.go" afterDir="false" />
     </list>
@@ -48,31 +48,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Build.go build main.go.executor": "Run",
-    "Go Build.go build wuerfel.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "js.last.introduce.type": "CONST",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/prak-nspi/IdeaProjects/wuerfel",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/prak-nspi/IdeaProjects/wuerfel/main.go",
-    "settings.editor.selected.configurable": "configurable.group.language",
-    "ts.external.directory.path": "C:\\Users\\prak-nspi\\IdeaProjects\\wuerfel\\ui\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Build.go build main.go.executor&quot;: &quot;Run&quot;,
+    &quot;Go Build.go build wuerfel.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/prak-nspi/IdeaProjects/wuerfel&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/prak-nspi/IdeaProjects/wuerfel/main.go&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\prak-nspi\\IdeaProjects\\wuerfel\\ui\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="wuerfel" />
@@ -125,6 +125,8 @@
       <workItem from="1739441723808" duration="3569000" />
       <workItem from="1739447778102" duration="9445000" />
       <workItem from="1739516653927" duration="20576000" />
+      <workItem from="1739545771532" duration="50000" />
+      <workItem from="1739775995084" duration="6325000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -190,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739457319841</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="react 2">
+      <option name="closed" value="true" />
+      <created>1739545811425</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739545811425</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,7 +226,8 @@
     <MESSAGE value="SDBX-2696 not ready 1" />
     <MESSAGE value="SDBX-2696 ready" />
     <MESSAGE value="react 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="react 1" />
+    <MESSAGE value="react 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="react 2" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
