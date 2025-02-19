@@ -24,13 +24,9 @@ func Initalhttp(router *gin.RouterGroup) {
 
 func handlegetstart(context *gin.Context) {
 	context.Header("Access-Control-Allow-Origin", "*")
-	for name, _ := range zwischenstand {
-		usermap[name] = 0 // Werte von einer Runde in die Gesammt Wertung einsetzen.
-		zwischenstand[name] = 0
-
-		context.JSON(200, gin.H{"Reset": fmt.Sprintf("%+v", usermap, zwischenstand)})
-
-	}
+	usermap = make(map[string]int)
+	zwischenstand = make(map[string]int)
+	context.Status(http.StatusNoContent)
 }
 
 func handlegetzwischenstand(context *gin.Context) {
@@ -39,6 +35,7 @@ func handlegetzwischenstand(context *gin.Context) {
 }
 
 func handlesendusercount(context *gin.Context) {
+	context.Header("Access-Control-Allow-Origin", "*")
 	temp := context.Param("usercount")
 	usercount, _ = strconv.Atoi(temp)
 	context.Status(http.StatusNoContent)
@@ -50,34 +47,40 @@ func handlegetbunker(context *gin.Context) {
 
 	for name, value := range zwischenstand {
 
-		usermap[name] += value // Werte von einer Runde in die Gesammt Wertung einsetzen.
+		usermap[name] += value
 		zwischenstand[name] = 0
-		context.JSON(200, gin.H{"Bunker-Ready": fmt.Sprintf("%+v", "%+v", usermap, zwischenstand)})
 
 	}
-	for name, _ := range zwischenstand {
-		zwischenstand[name] = 0
-		context.JSON(200, gin.H{"Zwischenstand": fmt.Sprintf("%+v", zwischenstand)})
+	Punktestaende := []Punktestand{}
+	for name, value := range usermap {
+
+		Punktestaende = append(Punktestaende, Punktestand{
+			Name:   name,
+			Punkte: value,
+		})
 
 	}
+	//result, _ := json.Marshal(Punktestaende)
+	context.JSON(200, Punktestaende)
+
 }
 
-type response struct {
-	zahl int
-	name string
+type Punktestand struct {
+	Name   string
+	Punkte int
 }
 
 func handleRollDice(context *gin.Context) {
-	zahl := rand.Intn(7)
-
+	zahl := rand.Intn(6) + 1
+	context.Header("Access-Control-Allow-Origin", "*")
 	name := context.Param("name")
 	zwischenstand[name] += zahl
 	if zahl == 6 {
 		zwischenstand[name] = 0
-		context.Header("Access-Control-Allow-Origin", "*")
-		context.JSON(200, gin.H{
-			"zahl": zahl,
-			"name": name,
-		})
+
 	}
+	context.JSON(200, gin.H{
+		"zahl": zahl,
+		"name": name,
+	})
 }
