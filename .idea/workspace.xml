@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9926629-6fc2-4964-b05b-9c36223bf1d4" name="Changes" comment="GUI | 1">
+    <list default="true" id="c9926629-6fc2-4964-b05b-9c36223bf1d4" name="Changes" comment="GUI |Bot &#10;&#10;Bugs:&#10;-Bot kommt nicht mit dem Bilder wechsel klar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wuerfeln/wuerfel_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/wuerfeln/wuerfel_controller.go" afterDir="false" />
     </list>
@@ -132,7 +130,10 @@
       <workItem from="1739775995084" duration="6862000" />
       <workItem from="1739782932256" duration="16423000" />
       <workItem from="1739862759526" duration="25371000" />
-      <workItem from="1739949219661" duration="13494000" />
+      <workItem from="1739949219661" duration="17108000" />
+      <workItem from="1739973595428" duration="5180000" />
+      <workItem from="1740035121304" duration="15290000" />
+      <workItem from="1740121357855" duration="24284000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -214,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739782472557</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="GUI |Bot &#10;&#10;Bugs:&#10;-Bot kommt nicht mit dem Bilder wechsel klar">
+      <option name="closed" value="true" />
+      <created>1739967765601</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739967765601</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +251,8 @@
     <MESSAGE value="react 1" />
     <MESSAGE value="react 2" />
     <MESSAGE value="react 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="react 3" />
+    <MESSAGE value="GUI |Bot &#10;&#10;Bugs:&#10;-Bot kommt nicht mit dem Bilder wechsel klar" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI |Bot &#10;&#10;Bugs:&#10;-Bot kommt nicht mit dem Bilder wechsel klar" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

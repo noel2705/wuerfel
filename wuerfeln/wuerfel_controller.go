@@ -1,7 +1,6 @@
 package wuerfeln
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"math/rand"
 	"net/http"
@@ -15,7 +14,7 @@ var (
 )
 
 func Initalhttp(router *gin.RouterGroup) {
-	router.GET("/wuerfel/:name", handleRollDice)
+	router.GET("/wuerfel/:name/:ignore", handleRollDice)
 	router.GET("/wuerfel/zwischenstand", handlegetzwischenstand)
 	router.GET("/:usercount", handlesendusercount)
 	router.GET("/bunker", handlegetbunker)
@@ -31,7 +30,7 @@ func handlegetstart(context *gin.Context) {
 
 func handlegetzwischenstand(context *gin.Context) {
 	context.Header("Access-Control-Allow-Origin", "*")
-	context.JSON(200, gin.H{"": fmt.Sprintf("%+v", zwischenstand)})
+	context.JSON(200, zwischenstand)
 }
 
 func handlesendusercount(context *gin.Context) {
@@ -74,13 +73,20 @@ func handleRollDice(context *gin.Context) {
 	zahl := rand.Intn(6) + 1
 	context.Header("Access-Control-Allow-Origin", "*")
 	name := context.Param("name")
+	ignore, _ := strconv.Atoi(context.Param("ignore"))
 	zwischenstand[name] += zahl
 	if zahl == 6 {
-		zwischenstand[name] = 0
+		if ignore == 0 {
+			zwischenstand[name] = 0
+		} else if ignore == 1 {
+			zahl = rand.Intn(6) + 1
+
+		}
 
 	}
 	context.JSON(200, gin.H{
-		"zahl": zahl,
-		"name": name,
+		"Ignore": ignore,
+		"zahl":   zahl,
+		"name":   name,
 	})
 }

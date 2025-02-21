@@ -1,0 +1,33 @@
+Index: ui/src/App.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ui/src/App.tsx b/ui/src/App.tsx
+--- a/ui/src/App.tsx	
++++ b/ui/src/App.tsx	(date 1739973561027)
+@@ -7,7 +7,7 @@
+ import {transformWithEsbuild} from "vite";
+ 
+ 
+-function App() {
++function App(wuerfel1: any = WUERFEL_1) {
+     const [zahl, setZahl] = useState(0);
+     const [usercount, setusercount] = useState(0);
+     const [name, setName] = useState("");
+@@ -30,8 +30,13 @@
+     const [wuerfel4, setwuerfel4] = useState(false)
+     const [wuerfel5, setwuerfel5] = useState(false)
+ 
+-const [imgage, setimage} = useState<enum>("")
+-    const wuerfeltime = (1500)
++    export const enum Snack {
++      VERFLIXTE_6
++        wuerfel1
++    }
++
++
++const wuerfeltime = (1500)
+     var computer = false
+ 
+ 
